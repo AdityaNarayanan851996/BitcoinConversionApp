@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/magenta"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/bitcoin_1" />
+
+
+    <TextView
+        android:id="@+id/nametxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Hello!"
+        android:textSize="22sp"
+        android:textStyle="bold|italic" />
+
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nametxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:text="Select Currency and Load"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <RadioGroup
+        android:id="@+id/currgrp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal">
+
+
+        <RadioButton
+            android:id="@+id/usd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:fontFamily="sans-serif-medium"
+            android:text="USD"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/gbp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:fontFamily="sans-serif-medium"
+            android:text="GBP"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/eur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:fontFamily="sans-serif-medium"
+            android:text="EUR"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/currgrp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/magenta"
+        android:text="Load" />
+
+</RelativeLayout>
