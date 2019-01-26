@@ -3,4 +3,12 @@
     <string name="pref_name">BitcoinPreferencesFile</string>
     <string name="one_time_pref">OneTimePref</string>
     <string name="hint">Enter Name Here</string>
+    <string name="hello">Hello!</string>
+    <string name="USD">USD</string>
+    <string name="GBP">GBP</string>
+    <string name="EUR">EUR</string>
+    <string name="enter_a_name_below">Enter A Name Below</string>
+    <string name="click_to_continue">Click to Continue</string>
+    <string name="currency_conversion">Currency Conversion!</string>
+    <string name="load">Load</string>
 </resources>

@@ -61,7 +61,7 @@
             android:layout_gravity="center_horizontal"
             android:checked="false"
             android:fontFamily="sans-serif-medium"
-            android:text="USD"
+            android:text="@string/USD"
             android:textSize="20sp" />
 
         <RadioButton
@@ -71,7 +71,7 @@
             android:layout_gravity="center_horizontal"
             android:checked="false"
             android:fontFamily="sans-serif-medium"
-            android:text="GBP"
+            android:text="@string/GBP"
             android:textSize="20sp" />
 
         <RadioButton
@@ -81,7 +81,7 @@
             android:layout_gravity="center_horizontal"
             android:checked="false"
             android:fontFamily="sans-serif-medium"
-            android:text="EUR"
+            android:text="@string/EUR"
             android:textSize="20sp" />
     </RadioGroup>
 
@@ -93,6 +93,6 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:background="@color/magenta"
-        android:text="Load" />
+        android:text="@string/load" />
 
 </RelativeLayout>

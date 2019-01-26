@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Currency Conversion!"
+        android:text="@string/currency_conversion"
         android:textSize="20sp"
         android:textStyle="bold|italic" />
 

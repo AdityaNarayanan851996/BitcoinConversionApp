@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static int usd = 0;
-    public static int gbp = 0;
-    public static int eur = 0;
+    private static int usd = 0;
+    private static int gbp = 0;
+    private static int eur = 0;
     protected Button loadBtn;
     protected EditText editTxt;
     protected TextView nameTxt;
@@ -47,19 +47,19 @@ public class MainActivity extends AppCompatActivity {
                 currButton = (RadioButton) findViewById(selectedId);
                 if (isInternetAvailable(MainActivity.this)) {
                     if (currButton != null) {
-                        if (currButton.getText().toString().equals("USD")) {
+                        if (currButton.getText().toString().equals(getString(R.string.USD))) {
                             usd = 1;
                             gbp = 0;
                             eur = 0;
                             toConversion(usd, gbp, eur);
                         }
-                        if (currButton.getText().toString().equals("GBP")) {
+                        if (currButton.getText().toString().equals(getString(R.string.GBP))) {
                             usd = 0;
                             gbp = 1;
                             eur = 0;
                             toConversion(usd, gbp, eur);
                         }
-                        if (currButton.getText().toString().equals("EUR")) {
+                        if (currButton.getText().toString().equals(getString(R.string.EUR))) {
                             usd = 0;
                             gbp = 0;
                             eur = 1;
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         if (nameOfUser.equals("UnNamedPerson")) {
             restart();
         } else {
-            nameTxt.setText("Hello! " + nameOfUser);
+            nameTxt.setText(getString(R.string.hello) + nameOfUser);
         }
 
 

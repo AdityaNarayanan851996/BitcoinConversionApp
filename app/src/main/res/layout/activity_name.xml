@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Enter A Name Below"
+        android:text="@string/enter_a_name_below"
         android:textSize="22sp"
         android:textStyle="bold|italic" />
 
@@ -50,6 +50,6 @@
         android:layout_marginTop="50dp"
         android:background="@color/magenta"
         android:fontFamily="sans-serif-medium"
-        android:text="Click to Continue" />
+        android:text="@string/click_to_continue" />
 
 </RelativeLayout>

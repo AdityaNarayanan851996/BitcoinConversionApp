@@ -23,7 +23,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ConversionActivity extends AppCompatActivity {
-    public static final String BTC_ENDPOINT = "https://api.coindesk.com/v1/bpi/currentprice.json";
+    private static final String BTC_ENDPOINT = "https://api.coindesk.com/v1/bpi/currentprice.json";
     private static final String TAG = "ConversionActivity";
     private TextView conversionTxt;
     private ProgressDialog progressDialog;
