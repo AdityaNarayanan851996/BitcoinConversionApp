@@ -95,4 +95,14 @@
         android:background="@color/magenta"
         android:text="@string/load" />
 
+    <Button
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loader"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/magenta"
+        android:text="CameraRecord" />
+
 </RelativeLayout>

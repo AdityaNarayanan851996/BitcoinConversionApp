@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected TextView nameTxt;
     private RadioGroup radioCurr;
     private RadioButton currButton;
+    protected Button cameraBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         nameTxt = (TextView) findViewById(R.id.nametxt);
         radioCurr = (RadioGroup) findViewById(R.id.currgrp);
         loadBtn = (Button) findViewById(R.id.loader);
+        cameraBtn = (Button) findViewById(R.id.camera);
+
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CameraRecordActivity.class));
+            }
+        });
         /*
             Take Relevant Currency and Make an API Call for the particular Currency.
             While Checking for internet connection and validity of radio checkbox.
