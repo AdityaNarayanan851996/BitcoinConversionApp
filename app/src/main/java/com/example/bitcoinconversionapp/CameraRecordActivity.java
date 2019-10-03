@@ -2,6 +2,7 @@ package com.example.bitcoinconversionapp;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,7 @@ public class CameraRecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent captureVideoIntent =new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
+                captureVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,5);
                 startActivityForResult(captureVideoIntent,VIDEO_CAPTURED);
             }
         });
