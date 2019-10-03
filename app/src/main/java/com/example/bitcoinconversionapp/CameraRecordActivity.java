@@ -1,8 +1,12 @@
 package com.example.bitcoinconversionapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,9 +39,21 @@ public class CameraRecordActivity extends AppCompatActivity {
         captureVideoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent captureVideoIntent =new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
-                captureVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,5);
-                startActivityForResult(captureVideoIntent,VIDEO_CAPTURED);
+                if( (ContextCompat.checkSelfPermission(CameraRecordActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        == PackageManager.PERMISSION_GRANTED ) ||
+                        (ContextCompat.checkSelfPermission(CameraRecordActivity.this,
+                                Manifest.permission.RECORD_AUDIO)
+                                == PackageManager.PERMISSION_GRANTED)){
+                    System.out.println((ContextCompat.checkSelfPermission(CameraRecordActivity.this,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED ) );
+                    Intent captureVideoIntent = new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
+                    captureVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 5);
+                    startActivityForResult(captureVideoIntent, VIDEO_CAPTURED);
+                } else {
+                    Toast.makeText(CameraRecordActivity.this, "Click other Button to request permissions", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         playVideoButton.setOnClickListener(new View.OnClickListener() {
@@ -50,9 +66,26 @@ public class CameraRecordActivity extends AppCompatActivity {
         captureWithoutDataVideoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playVideoButton.setEnabled(false);
-                Intent captureVideoIntent =new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
-                startActivity(captureVideoIntent);
+
+                if(ContextCompat.checkSelfPermission(CameraRecordActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED ||
+                        ContextCompat.checkSelfPermission(CameraRecordActivity.this,
+                                Manifest.permission.RECORD_AUDIO)
+                                != PackageManager.PERMISSION_GRANTED) {
+
+                    if(ActivityCompat.shouldShowRequestPermissionRationale(CameraRecordActivity.this,
+                            Manifest.permission.RECORD_AUDIO) || ActivityCompat.shouldShowRequestPermissionRationale(CameraRecordActivity.this,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                         Toast.makeText(CameraRecordActivity.this, "In Progress", Toast.LENGTH_SHORT).show();
+                    } else {
+                        ActivityCompat.requestPermissions(CameraRecordActivity.this,
+                                new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                200);
+                    }
+                } else{
+                    Toast.makeText(CameraRecordActivity.this, "U Already Have Permission", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
