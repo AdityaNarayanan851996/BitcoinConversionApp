@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +15,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editTxt = (EditText) findViewById(R.id.editName);
-        nameTxt = (TextView) findViewById(R.id.nametxt);
-        radioCurr = (RadioGroup) findViewById(R.id.currgrp);
-        loadBtn = (Button) findViewById(R.id.loader);
-        cameraBtn = (Button) findViewById(R.id.camera);
+        editTxt = findViewById(R.id.editName);
+        nameTxt = findViewById(R.id.nametxt);
+        radioCurr = findViewById(R.id.currgrp);
+        loadBtn = findViewById(R.id.loader);
+        cameraBtn = findViewById(R.id.camera);
 
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int selectedId = radioCurr.getCheckedRadioButtonId();
-                currButton = (RadioButton) findViewById(selectedId);
+                currButton = findViewById(selectedId);
                 if (isInternetAvailable(MainActivity.this)) {
                     if (currButton != null) {
                         if (currButton.getText().toString().equals(getString(R.string.USD))) {
